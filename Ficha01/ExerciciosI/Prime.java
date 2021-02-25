@@ -26,5 +26,6 @@ public class Prime {
             }
             else break;
         }
+        input.close();
     }
 }

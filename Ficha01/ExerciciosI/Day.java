@@ -7,11 +7,9 @@ public class Day{
         int year = Integer.parseInt(args[2]);
         weekDay(day, month, year);
     }
+    
     public static boolean isLeap (int year){
-        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
-            return true;
-        } 
-        else return false;
+        return ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)));
     }
 
     public static void weekDay(int day, int month, int year){
@@ -58,8 +56,4 @@ public class Day{
         }
         else System.out.println("Out of bounds.");
     }
-
-    public static void sumDates
-    
-
 }

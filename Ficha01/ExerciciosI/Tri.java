@@ -1,5 +1,4 @@
 package Ficha01.ExerciciosI;
-import java.lang.Math;
 import java.util.Scanner;
 
 public class Tri {
