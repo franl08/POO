@@ -37,7 +37,7 @@ public class Problems {
     // Exercise 6
     public static long fact(long num){
         long res = 1;
-        if (num > 2) {
+        if (num >= 2) {
             for (long i = 1; i < num; i++){
                 res = res * i;
         }
