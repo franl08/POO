@@ -63,7 +63,7 @@ public class IO {
     public static void factorial(){
         Scanner input = new Scanner(System.in);
         System.out.println("Insert a non-negative integer: ");
-        int num = input.nextInt();
+        long num = input.nextLong();
         if (num < 0){
             System.out.println("The inserted number is negative.");
             return;
