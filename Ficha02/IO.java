@@ -1,6 +1,7 @@
 package Ficha02;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class IO {
 
@@ -92,10 +93,7 @@ public class IO {
                 System.out.println("Grades bigger than " + num + ": " + resS);
                 break;
             case 7:
-                for(int i = 0; i < 5; i++){
-                    System.out.println("Grades of student number " + (i + 1));
-                    System.out.println(Ex2.grades(i, array));
-                }
+                System.out.println(Ex2.grades(array));
                 break;
             case 8:
                 num = Ex2.indexMax(array);
@@ -106,6 +104,31 @@ public class IO {
         }
     }
 
+    //Exercise 4.
+    public static void arrInt(int n){
+        System.out.println("Insert the size of the array: ");
+        Scanner in = new Scanner(System.in);
+        int size = in.nextInt();
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++){
+            System.out.println("Insert the " + (i+1) + " element of the array.");
+            array[i] = in.nextInt();
+        }
+        switch(n){
+            case 1:
+                Arrays.sort(array);
+                String resS = Arrays.toString(array);
+                System.out.println(resS);
+                break;
+            case 2:
+                System.out.println("Insert the number you want to find: ");
+                int val = in.nextInt();
+                int res = Arrays.binarySearch(array, val);
+                if (res < 0) System.out.println("Not found");
+                else System.out.println("Found at index " + res);
+            default:
+                break;
+    }
     public static void main(String[] args){
 
     }

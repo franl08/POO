@@ -1,6 +1,8 @@
 package Ficha02;
 import java.util.Arrays;
 
+import org.graalvm.compiler.hotspot.stubs.DivisionByZeroExceptionStub;
+
 public class Ex2 {
     public static int sumUC (int n, int[][] array){
         int sum = 0;
@@ -56,10 +58,8 @@ public class Ex2 {
         return (Arrays.toString(res));
     }
 
-    public static String grades(int n, int[][] array){         
-        int[] res = new int[5];
-        for(int i = 0; i < 5; i++) res[i] = array[n][i];
-        return(Arrays.toString(res));
+    public static String grades(int[][] array){         
+        return(Arrays.deepToString(array));
     }
     
     public static int indexMax(int[][] array){
