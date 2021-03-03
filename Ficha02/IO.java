@@ -104,7 +104,7 @@ public class IO {
         }
     }
 
-    //Exercise 4.
+    // Exercise 4.
     public static void arrInt(int n){
         System.out.println("Insert the size of the array: ");
         Scanner in = new Scanner(System.in);
@@ -126,10 +126,41 @@ public class IO {
                 int res = Arrays.binarySearch(array, val);
                 if (res < 0) System.out.println("Not found");
                 else System.out.println("Found at index " + res);
+                break;
             default:
                 break;
+        }
+    }
+
+    public static void ex5(int n){
+        Scanner in = new Scanner(System.in);
+        Scanner st = new Scanner(System.in);
+        int size;
+        System.out.println("Insert the size of the array: ");
+        size = in.nextInt();
+        String temp, res;
+        String[] array = new String[size];
+        for (int i = 0; i < size; i++){
+            System.out.println("Insert string number " + (i + 1));
+            temp = st.nextLine();
+            array[i] = temp;
+        }
+        switch(n){
+            case 1:
+                res = (Ex5.nonRep(array));
+                System.out.println(res);
+                break;
+            case 2:
+                res = (Ex5.biggest(array));
+                System.out.println(res);
+                break;
+            default:
+                break;
+
+        }
+        
     }
     public static void main(String[] args){
-
+        ex5(2);
     }
 }

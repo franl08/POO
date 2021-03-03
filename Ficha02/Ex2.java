@@ -1,8 +1,6 @@
 package Ficha02;
 import java.util.Arrays;
 
-import org.graalvm.compiler.hotspot.stubs.DivisionByZeroExceptionStub;
-
 public class Ex2 {
     public static int sumUC (int n, int[][] array){
         int sum = 0;
