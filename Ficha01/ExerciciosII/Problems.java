@@ -40,6 +40,7 @@ public class Problems {
         if (num >= 2) {
             for (long i = 1; i < num; i++){
                 res = res * i;
+            }
         }
         return res;   
     }
