@@ -42,7 +42,71 @@ public class IO {
         }
     }
 
+    // Exercise 2.
+    public static void ex2 (int n){
+        int num, res;
+        double resD;
+        String resS;
+        Scanner in = new Scanner(System.in);
+        int[][] array = new int[5][5];
+        
+        for (int i = 0; i < 5; i++){
+            System.out.println("Please insert the grades of student number " + (i + 1));
+            for (int j = 0; j < 5; j++){
+                System.out.println("Grade of the UC number " + (j + 1) + ":");
+                int value = in.nextInt();
+                array[i][j] = value;
+            }
+        }
+        switch(n){
+            case 1:
+                System.out.println("Please insert the index of the UC.");
+                num = in.nextInt();
+                res = Ex2.sumUC(num, array);
+                System.out.println("Sum of all grades = " + res);
+                break;
+            case 2:
+                System.out.println("Please insert the index of the student.");
+                num = in.nextInt();
+                resD = Ex2.averageStu(num, array);
+                System.out.println("Average = " + resD);
+                break;
+            case 3:
+                System.out.println("Please insert the index of the UC.");
+                num = in.nextInt();
+                resD = Ex2.averageUC(num, array);
+                System.out.println("Average = " + resD);
+                break;
+            case 4:
+                res = Ex2.maximum(array);
+                System.out.println("Best grade: " + res);
+                break;
+            case 5:
+                res = Ex2.minimum(array);
+                System.out.println("Worst grade: " + res);
+                break;
+            case 6:
+                System.out.println("Insert a grade.");
+                num = in.nextInt();
+                resS = Ex2.biggerThan(num, array);
+                System.out.println("Grades bigger than " + num + ": " + resS);
+                break;
+            case 7:
+                for(int i = 0; i < 5; i++){
+                    System.out.println("Grades of student number " + (i + 1));
+                    System.out.println(Ex2.grades(i, array));
+                }
+                break;
+            case 8:
+                num = Ex2.indexMax(array);
+                System.out.println("Index of the UC with better average: " + num);
+                break;
+            default:
+                break;
+        }
+    }
+
     public static void main(String[] args){
-        ex1(3);
+        
     }
 }
