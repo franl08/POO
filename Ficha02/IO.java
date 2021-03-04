@@ -169,7 +169,54 @@ public class IO {
         }
     }
 
+    // Exercise 6.
+    public static int[][] createMatrix(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Insert the number of columns.");
+        int numCol = in.nextInt();
+        System.out.println("Insert the number of lines.");
+        int numLines = in.nextInt();
+        int[][] matrix = new int[numLines][numCol];
+        for (int i = 0; i < numLines; i++)
+            for (int j = 0; j < numCol; j++){
+                System.out.println("Insert number for line number " + (i + 1) + ", column number " + (j + 1));
+                matrix[i][j] = in.nextInt();
+            }
+        return matrix;
+    }
+
+    public static void matrix(int n){
+        int[][] mat = createMatrix();
+        int[][] mat2;
+        String res;
+        switch(n){
+            case 1:
+                System.out.println("Now, you need to insert another matrix of the same dimension.");
+                mat2 = createMatrix();
+                res = Ex6.sumMatrix(mat, mat2);
+                System.out.println(res);
+                break;
+            case 2:
+                System.out.println("Now, you need to insert another matrix of the same dimension.");
+                mat2 = createMatrix();
+                res = Ex6.areEqual(mat, mat2);
+                System.out.println(res);
+                break;
+            case 3:
+                System.out.println("Opposite matrix: ");
+                res = Ex6.oppositeMat(mat);
+                System.out.println(res);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Exercise 7.
+    
+
+
     public static void main(String[] args){
-        ex5(4);
+        matrix(3);
     }
 }
