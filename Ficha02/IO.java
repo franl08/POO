@@ -154,13 +154,22 @@ public class IO {
                 res = (Ex5.biggest(array));
                 System.out.println(res);
                 break;
+            case 3:
+                res = (Ex5.moreThanOnce(array));
+                System.out.println(res);
+                break;         
+            case 4:
+                System.out.println("Insert the string: ");
+                temp = st.nextLine();
+                res = (Ex5.howMany(array, temp));
+                System.out.println(res);
+                break;
             default:
                 break;
-
         }
-        
     }
+
     public static void main(String[] args){
-        ex5(2);
+        ex5(4);
     }
 }
