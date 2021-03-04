@@ -105,7 +105,7 @@ public class IO {
     }
 
     // Exercise 4.
-    public static void arrInt(int n){
+    public static void ex4(int n){
         System.out.println("Insert the size of the array: ");
         Scanner in = new Scanner(System.in);
         int size = in.nextInt();
@@ -132,6 +132,7 @@ public class IO {
         }
     }
 
+    // Exercise 5.
     public static void ex5(int n){
         Scanner in = new Scanner(System.in);
         Scanner st = new Scanner(System.in);
@@ -185,7 +186,7 @@ public class IO {
         return matrix;
     }
 
-    public static void matrix(int n){
+    public static void ex6(int n){
         int[][] mat = createMatrix();
         int[][] mat2;
         String res;
@@ -213,7 +214,7 @@ public class IO {
     }
 
     // Exercise 7.
-    public static void euromillions(){
+    public static void ex7(){
             int[] nums, stars, numKey, starsKey, commonN, commonS;
             boolean flagN, flagS, allCorrect;
             System.out.println("Insert 5 different numbers between 1 and 50");
@@ -249,6 +250,44 @@ public class IO {
 
 
     public static void main(String[] args){
-        euromillions();
+        int n = Integer.parseInt(args[0]);
+        Scanner in = new Scanner(System.in);
+        String options = "Insert what option you want: ";
+        switch(n){
+            case 1:
+                System.out.println(options + "1, 2 or 3.");
+                n = in.nextInt();
+                ex1(n);
+                break;
+            case 2:
+                System.out.println(options + "1, 2, 3, 4, 5, 6, 7 or 8.");
+                n = in.nextInt();
+                ex2(n);
+                break;
+            case 3:
+                System.out.println("Not implemented in main.");
+                break;
+            case 4:
+                System.out.println(options + "1 or 2.");
+                n = in.nextInt();
+                ex4(n);
+                break;
+            case 5:
+                System.out.println(options + "1, 2, 3 or 4.");
+                n = in.nextInt();
+                ex5(n);
+                break;
+            case 6:
+                System.out.println(options + "1, 2 or 3.");
+                n = in.nextInt();
+                ex6(n);
+                break;
+            case 7:
+                ex7();
+                break;
+            default:
+                System.out.println("Not an exercise.");
+                break;
+        }
     }
 }
