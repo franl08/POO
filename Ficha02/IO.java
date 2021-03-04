@@ -213,10 +213,42 @@ public class IO {
     }
 
     // Exercise 7.
-    
+    public static void euromillions(){
+            int[] nums, stars, numKey, starsKey, commonN, commonS;
+            boolean flagN, flagS, allCorrect;
+            System.out.println("Insert 5 different numbers between 1 and 50");
+            nums = Ex7.readNums();
+            System.out.println("Insert 2 different numbers between 1 and 12");
+            stars = Ex7.readStars();
+            flagN = Ex7.testNums(nums);
+            flagS = Ex7.testStars(stars);
+            if(!flagN || !flagS){
+                System.out.println("Invalid key.");
+                return;
+            }
+            
+            numKey = Ex7.generateNums();
+            starsKey = Ex7.generateStars();
+            commonN = Ex7.compareNums(nums, numKey);
+            commonS = Ex7.compareStars(stars, starsKey);
+            allCorrect = Ex7.correct(commonN, commonS);
+            if (!allCorrect){
+                System.out.println("You didn't won. Better luck next time!");
+                System.out.println("Numbers: " + (Arrays.toString(numKey)) + " and Stars: " + (Arrays.toString(starsKey)));
+                System.out.println("Numbers in common: " + (Arrays.toString(commonN)) + ", stars in common: " + (Arrays.toString(commonS)));
+            }
+            else{
+                for (int i = 1; i <= 50; i++){
+                    for (int j = 1; j <= 2 * i; j++)
+                        System.out.print(" ");
+                    System.out.println("Numbers: " + (Arrays.toString(numKey)) + " and Stars: " + (Arrays.toString(starsKey)));
+                }
+            }
+
+    }
 
 
     public static void main(String[] args){
-        matrix(3);
+        euromillions();
     }
 }
