@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class TestProgram {
     public static void main(String[] args){
@@ -50,6 +49,25 @@ public class TestProgram {
                 System.out.println(phone1.toString());
                 phone1.averageAppSize();
                 System.out.println("Average app size: " + phone1.averageAppSize());
+                break;
+            case 3:
+                ArrayList<String> comms = new ArrayList<String>();
+                Date up = new GregorianCalendar(2020, Calendar.DECEMBER, 25).getTime();
+                comms.add("Scam");
+                comms.add("Like before watch");
+                Youtube video1 = new Youtube("Look what happened", 225454, up, 1080, 25, 12, comms, 25, 12);
+                System.out.println(video1.toString());
+                Youtube video2 = new Youtube(video1);
+                System.out.println(video2.toString());
+                System.out.println(video1.equals(video2) + " vs Expected: true");
+                video2.thumbsUp();
+                System.out.println(video2.toString());
+                System.out.println(video1.equals(video2) + " vs Expected: false");
+                video1.insertComment("Top video: 5 stars!");
+                System.out.println(video1.toString());
+                System.out.println("Days since upload: " + video1.daysLater());
+                System.out.println("Code to process: " + video1.process());
+                break;
             default:
                 break;
         }
