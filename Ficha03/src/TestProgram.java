@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestProgram {
@@ -27,6 +28,28 @@ public class TestProgram {
                 System.out.println("Correct values: setters circle3, x = 3, y = 7, radius = 4");
                 System.out.println(circle3.toString());
                 break;
+            case 2:
+                ArrayList<String> apps = new ArrayList<String>();
+                apps.add("F1TV");
+                apps.add("FIFA");
+                ArrayList <String> msg = new ArrayList<String>();
+                msg.add("Hello");
+                msg.add("World!");
+                Phone phone1 = new Phone("Apple", "iPhone", 1920, 1080, 2000, 5000, 5000, 20, 2, 2, apps, msg);
+                System.out.println(phone1.toString());
+                Phone phone2 = new Phone(phone1);
+                System.out.println(phone2.toString());
+                System.out.println(phone1.equals(phone2) + " vs Expected: true");
+                phone1.installApp("Instagram", 20);
+                System.out.println(phone1.toString());
+                System.out.println(phone1.equals(phone2) + " vs Expected: false");
+                phone1.newMsg("IAMTHEBIGGESTONE&NOONECANDENYTHAT");
+                System.out.println(phone1.toString());
+                System.out.println(phone1.biggestMsg());
+                phone1.removeApp("Instagram", 20);
+                System.out.println(phone1.toString());
+                phone1.averageAppSize();
+                System.out.println("Average app size: " + phone1.averageAppSize());
             default:
                 break;
         }

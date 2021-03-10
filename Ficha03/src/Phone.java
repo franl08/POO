@@ -16,7 +16,7 @@ public class Phone {
     private ArrayList<String> appsName;
     private ArrayList<String> messages;
 
-    public Phone(String brand, String model, int displayX, int displayY, long messageStorage, long photoStorage, long appStorage, ArrayList<String> appsName) {
+    public Phone(String brand, String model, int displayX, int displayY, long messageStorage, long photoStorage, long appStorage, ArrayList<String> appsName, ArrayList<String> messages) {
         this.brand = brand;
         this.model = model;
         this.displayX = displayX;
@@ -43,9 +43,9 @@ public class Phone {
         this.nPhotos = nPhotos;
         this.nApps = nApps;
         this.appsName = new ArrayList<String>(nApps);
-        for (String app : appsName) appsName.add(app);
+        for (String app : appsName) this.appsName.add(app);
         this.messages = new ArrayList<String>(messages.size());
-        for(String msg : messages) messages.add(msg);
+        for(String msg : messages) this.messages.add(msg);
     }
 
     public Phone(Phone phone){
@@ -56,11 +56,12 @@ public class Phone {
         this.messageStorage = phone.getMessageStorage();
         this.photoStorage = phone.getPhotoStorage();
         this.appStorage = phone.getAppStorage();
+        this.usedStorage = phone.getUsedStorage();
         this.nPhotos = phone.getNPhotos();
         this.nApps = phone.getNApps();
         this.appsName = new ArrayList<String>(nApps);
         for (String app : phone.appsName) this.appsName.add(app);
-        this.messages = new ArrayList<String>(messages.size());
+        this.messages = new ArrayList<String>(phone.messages.size());
         for(String msg : phone.messages) this.messages.add(msg);
     }
 
@@ -179,7 +180,8 @@ public class Phone {
         sb.append(", UsedStorage = ").append(usedStorage);
         sb.append(", NumberOfPhotos = ").append(nPhotos);
         sb.append(", NumberOfApps = ").append(nApps);
-        sb.append(", AppsNames = ").append(appsName.toString());
+        sb.append(", AppsNames = ").append(appsName);
+        sb.append(", Messages = ").append(messages);
         sb.append("}");
         return sb.toString();
     }
