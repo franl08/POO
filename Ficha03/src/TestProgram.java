@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class TestProgram {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
@@ -68,6 +69,23 @@ public class TestProgram {
                 System.out.println("Days since upload: " + video1.daysLater());
                 System.out.println("Code to process: " + video1.process());
                 break;
+            case 4:
+                Lamp lamp1 = new Lamp();
+                System.out.println(lamp1.toString());
+                lamp1.lampOn();
+                System.out.println(lamp1.toString());
+                Lamp lamp2 = new Lamp(lamp1);
+                System.out.println(lamp2);
+                System.out.println(lamp1.equals(lamp2) + " vs Expected: true");
+                lamp1.updateCons();
+                System.out.println(lamp1.toString());
+                lamp1.resetCons();
+                System.out.println(lamp1.getTempConsume());
+                lamp1.lampEco();
+                lamp1.updateCons();
+                System.out.println(lamp1.toString());
+                lamp1.lampOff();
+                System.out.println(lamp1.toString());
             default:
                 break;
         }

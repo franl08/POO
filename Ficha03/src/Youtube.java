@@ -1,3 +1,4 @@
+import javax.swing.plaf.ToolTipUI;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,6 +37,10 @@ public class Youtube {
         for (String comm : y.comments) this.comments.add(comm);
         this.likes = y.getLikes();
         this.dislikes = y.getDislikes();
+    }
+
+    public Youtube clone(Youtube y){
+        return new Youtube(this);
     }
 
     public String getVideoName() {
