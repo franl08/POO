@@ -74,7 +74,7 @@ public class Lamp  {
     }
 
     public Lamp clone(Lamp l){
-        return new Lamp(this);
+        return new Lamp(l);
     }
 
     public boolean equals(Object o){
