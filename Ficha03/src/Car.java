@@ -172,7 +172,7 @@ public class Car {
         this.lastAverage = 0;
     }
 
-    public void avanceCar(double meters, double vel){
+    public void moveCar(double meters, double vel){
         if (this.state == CarState.ON){
             double km = meters / 1000;
             double cons = km * ((vel * this.consume) / 100);

@@ -108,7 +108,7 @@ public class TestProgram {
                 Car car1 = new Car("Opel", "Corsa", 2011, 4.3, 1);
                 System.out.println(car1.toString());
                 car1.turnOn();
-                car1.avanceCar(1000000, 200);
+                car1.moveCar(1000000, 200);
                 System.out.println(car1.toString());
                 Car car2 = new Car(car1);
                 System.out.println(car2);
@@ -118,7 +118,7 @@ public class TestProgram {
                 System.out.println(car2.equals(car1));
                 car1.resetLastTrip();
                 System.out.println(car1);
-                car1.avanceCar(1000, 3);
+                car1.moveCar(1000, 3);
                 System.out.println(car1);
                 break;
             case 7:
