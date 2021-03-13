@@ -99,7 +99,6 @@ public class TestProgram {
                 System.out.println(game2 + " " + game1);
                 System.out.println(game2.equals(game1));
                 game1.homeGoal();
-                //System.out.println(game1.currentScore());
                 System.out.println(game2 + " " + game1);
                 game1.endGame();
                 System.out.println(game2 + " " + game1);
