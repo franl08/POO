@@ -62,7 +62,7 @@ public class Order {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -70,7 +70,7 @@ public class Order {
     }
 
     public long getNif() {
-        return nif;
+        return this.nif;
     }
 
     public void setNif(long nif) {
@@ -78,7 +78,7 @@ public class Order {
     }
 
     public String getHome() {
-        return home;
+        return this.home;
     }
 
     public void setHome(String home) {
@@ -86,7 +86,7 @@ public class Order {
     }
 
     public long getOrdNumber() {
-        return ordNumber;
+        return this.ordNumber;
     }
 
     public void setOrdNumber(long ordNumber) {
@@ -94,7 +94,7 @@ public class Order {
     }
 
     public Date getOrdDate() {
-        return ordDate;
+        return this.ordDate;
     }
 
     public void setOrdDate(Date ordDate) {
@@ -102,7 +102,7 @@ public class Order {
     }
 
     public ArrayList<OrderLine> getLines() {
-        return lines;
+        return this.lines;
     }
 
     public void setLines(ArrayList<OrderLine> lines) {

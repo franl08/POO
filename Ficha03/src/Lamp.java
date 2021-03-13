@@ -34,7 +34,7 @@ public class Lamp  {
     }
 
     public LampMode getMode() {
-        return mode;
+        return this.mode;
     }
 
     public void setMode(LampMode mode) {
@@ -42,7 +42,7 @@ public class Lamp  {
     }
 
     public long getTempConsume() {
-        return tempConsume;
+        return this.tempConsume;
     }
 
     public void setTempConsume(long tempConsume) {
@@ -50,7 +50,7 @@ public class Lamp  {
     }
 
     public long getTotalConsume() {
-        return totalConsume;
+        return this.totalConsume;
     }
 
     public void setTotalConsume(long totalConsume) {
@@ -58,7 +58,7 @@ public class Lamp  {
     }
 
     public long getInitTime() {
-        return initTime;
+        return this.initTime;
     }
 
     public void setInitTime() {
@@ -66,7 +66,7 @@ public class Lamp  {
     }
 
     public int getConsPerMs() {
-        return consPerMs;
+        return this.consPerMs;
     }
 
     public void setConsPerMs(int consPerMs) {

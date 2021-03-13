@@ -44,7 +44,7 @@ public class Youtube {
     }
 
     public String getVideoName() {
-        return videoName;
+        return this.videoName;
     }
 
     public void setVideoName(String videoName) {
@@ -52,7 +52,7 @@ public class Youtube {
     }
 
     public long getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(long content) {
@@ -60,7 +60,7 @@ public class Youtube {
     }
 
     public Date getUpDate() {
-        return upDate;
+        return this.upDate;
     }
 
     public void setUpDate(Date upDate) {
@@ -68,7 +68,7 @@ public class Youtube {
     }
 
     public int getResolution() {
-        return resolution;
+        return this.resolution;
     }
 
     public void setResolution(int resolution) {
@@ -76,7 +76,7 @@ public class Youtube {
     }
 
     public int getDurMin() {
-        return durMin;
+        return this.durMin;
     }
 
     public void setDurMin(int durMin) {
@@ -84,7 +84,7 @@ public class Youtube {
     }
 
     public int getDurSec() {
-        return durSec;
+        return this.durSec;
     }
 
     public void setDurSec(int durSec) {
@@ -92,7 +92,7 @@ public class Youtube {
     }
 
     public ArrayList<String> getComments() {
-        return comments;
+        return this.comments;
     }
 
     public void setComments(ArrayList<String> comments) {
@@ -101,7 +101,7 @@ public class Youtube {
     }
 
     public int getLikes() {
-        return likes;
+        return this.likes;
     }
 
     public void setLikes(int likes) {
@@ -109,7 +109,7 @@ public class Youtube {
     }
 
     public int getDislikes() {
-        return dislikes;
+        return this.dislikes;
     }
 
     public void setDislikes(int dislikes) {

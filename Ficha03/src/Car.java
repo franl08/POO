@@ -79,7 +79,7 @@ public class Car {
     }
 
     public CarState getState() {
-        return state;
+        return this.state;
     }
 
     public void setState(CarState state) {
@@ -87,7 +87,7 @@ public class Car {
     }
 
     public String getBrand() {
-        return brand;
+        return this.brand;
     }
 
     public void setBrand(String brand) {
@@ -95,7 +95,7 @@ public class Car {
     }
 
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public void setModel(String model) {
@@ -103,7 +103,7 @@ public class Car {
     }
 
     public int getYear() {
-        return year;
+        return this.year;
     }
 
     public void setYear(int year) {
@@ -111,7 +111,7 @@ public class Car {
     }
 
     public double getConsume() {
-        return consume;
+        return this.consume;
     }
 
     public void setConsume(double consume) {
@@ -119,7 +119,7 @@ public class Car {
     }
 
     public long getTotalKm() {
-        return totalKm;
+        return this.totalKm;
     }
 
     public void setTotalKm(long totalKm) {
@@ -127,7 +127,7 @@ public class Car {
     }
 
     public double getAverageConsume() {
-        return averageConsume;
+        return this.averageConsume;
     }
 
     public void setAverageConsume(double averageConsume) {
@@ -135,7 +135,7 @@ public class Car {
     }
 
     public long getLastKm() {
-        return lastKm;
+        return this.lastKm;
     }
 
     public void setLastKm(long lastKm) {
@@ -143,7 +143,7 @@ public class Car {
     }
 
     public double getLastAverage() {
-        return lastAverage;
+        return this.lastAverage;
     }
 
     public void setLastAverage(double lastAverage) {
@@ -151,7 +151,7 @@ public class Car {
     }
 
     public int getRegeneration() {
-        return regeneration;
+        return this.regeneration;
     }
 
     public void setRegeneration(int regeneration) {

@@ -41,7 +41,7 @@ public class Points {
     }
 
     public double getX() {
-        return x;
+        return this.x;
     }
 
     public void setX(double x) {
@@ -49,7 +49,7 @@ public class Points {
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(double y) {

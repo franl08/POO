@@ -44,7 +44,7 @@ public class Triangles {
     }
 
     public Points getP1() {
-        return p1;
+        return this.p1;
     }
 
     public void setP1(Points p1) {
@@ -52,7 +52,7 @@ public class Triangles {
     }
 
     public Points getP2() {
-        return p2;
+        return this.p2;
     }
 
     public void setP2(Points p2) {
@@ -60,7 +60,7 @@ public class Triangles {
     }
 
     public Points getP3() {
-        return p3;
+        return this.p3;
     }
 
     public void setP3(Points p3) {

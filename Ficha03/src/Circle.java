@@ -32,7 +32,7 @@ public class Circle {
     }
 
     public double getX() {
-        return x;
+        return this.x;
     }
 
     public void setX(double x) {
@@ -40,7 +40,7 @@ public class Circle {
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(double y) {
@@ -48,7 +48,7 @@ public class Circle {
     }
 
     public double getRadius() {
-        return radius;
+        return this.radius;
     }
 
     public boolean equals(Object o){

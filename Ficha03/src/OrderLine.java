@@ -58,7 +58,7 @@ public class OrderLine {
     }
 
     public String getReference() {
-        return reference;
+        return this.reference;
     }
 
     public void setReference(String reference) {
@@ -66,7 +66,7 @@ public class OrderLine {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -74,7 +74,7 @@ public class OrderLine {
     }
 
     public double getOrigPrice() {
-        return origPrice;
+        return this.origPrice;
     }
 
     public void setOrigPrice(double origPrice) {
@@ -82,7 +82,7 @@ public class OrderLine {
     }
 
     public long getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
     public void setQuantity(long quantity) {
@@ -90,7 +90,7 @@ public class OrderLine {
     }
 
     public int getTax() {
-        return tax;
+        return this.tax;
     }
 
     public void setTax(int tax) {
@@ -98,7 +98,7 @@ public class OrderLine {
     }
 
     public int getDiscount() {
-        return discount;
+        return this.discount;
     }
 
     public void setDiscount(int discount) {

@@ -26,7 +26,7 @@ public class Game {
     }
 
     public GameState getState() {
-        return state;
+        return this.state;
     }
 
     public void setState(GameState state) {
@@ -34,7 +34,7 @@ public class Game {
     }
 
     public int getHomeGoals() {
-        return homeGoals;
+        return this.homeGoals;
     }
 
     public void setHomeGoals(int homeGoals) {
@@ -42,7 +42,7 @@ public class Game {
     }
 
     public int getAwayGoals() {
-        return awayGoals;
+        return this.awayGoals;
     }
 
     public void setAwayGoals(int awayGoals) {

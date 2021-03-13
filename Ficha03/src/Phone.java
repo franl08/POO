@@ -66,7 +66,7 @@ public class Phone {
     }
 
     public String getBrand() {
-        return brand;
+        return this.brand;
     }
 
     public void setBrand(String brand) {
@@ -74,7 +74,7 @@ public class Phone {
     }
 
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public void setModel(String model) {
@@ -82,7 +82,7 @@ public class Phone {
     }
 
     public int getDisplayX() {
-        return displayX;
+        return this.displayX;
     }
 
     public void setDisplayX(int displayX) {
@@ -90,7 +90,7 @@ public class Phone {
     }
 
     public int getDisplayY() {
-        return displayY;
+        return this.displayY;
     }
 
     public void setDisplayY(int displayY) {
@@ -98,7 +98,7 @@ public class Phone {
     }
 
     public long getMessageStorage() {
-        return messageStorage;
+        return this.messageStorage;
     }
 
     public void setMessageStorage(long messageStorage) {
@@ -106,7 +106,7 @@ public class Phone {
     }
 
     public long getPhotoStorage() {
-        return photoStorage;
+        return this.photoStorage;
     }
 
     public void setPhotoStorage(long photoStorage) {
@@ -114,7 +114,7 @@ public class Phone {
     }
 
     public long getAppStorage() {
-        return appStorage;
+        return this.appStorage;
     }
 
     public void setAppStorage(long appStorage) {
@@ -122,7 +122,7 @@ public class Phone {
     }
 
     public long getUsedStorage() {
-        return usedStorage;
+        return this.usedStorage;
     }
 
     public void setUsedStorage(long usedStorage) {
@@ -130,7 +130,7 @@ public class Phone {
     }
 
     public long getNPhotos() {
-        return nPhotos;
+        return this.nPhotos;
     }
 
     public void setNPhotos(long nPhotos) {
@@ -138,7 +138,7 @@ public class Phone {
     }
 
     public int getNApps() {
-        return nApps;
+        return this.nApps;
     }
 
     public void setNApps(int nApps) {
