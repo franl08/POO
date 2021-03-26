@@ -112,6 +112,30 @@ public class Teste {
                 System.out.println(f.top5CommentsE().toString());
                 System.out.println(f.top5CommentsI().toString());
                 break;
+            case 5:
+                LocalDateTime dt1 = LocalDateTime.of (2020, Month.DECEMBER, 25, 12, 30);
+                LocalDateTime dt2 = LocalDateTime.now();
+                LocalDateTime dt3 = LocalDateTime.of (1999, Month.MARCH, 3, 11, 20);
+                LocalDateTime dt4 = LocalDateTime.of (2020, Month.DECEMBER, 2, 2 ,3);
+                SupportRequest sr = new SupportRequest("Jorge", dt1, "Toaster", "Doesn't work");
+                SupportRequest sr2 = new SupportRequest("Felipe", dt3, "Fridge", "Too cold");
+                SupportRequest sr3 = new SupportRequest("Bianca", dt4, "Computer", "Too fast");
+                SupportSystem ss = new SupportSystem();
+                ss.insertRequest(sr);
+                ss.insertRequest(sr2);
+                ss.insertRequest(sr3);
+                System.out.println(ss.toString());
+                ss.solveRequest(sr, "Musk", "Throw against the floor");
+                System.out.println(ss.toString());
+                ss.solveRequest(sr2, "Mario", "Try to turn off and on");
+                System.out.println(ss.solved());
+                ss.solveRequest(sr3, "Musk", "Try to install Respondus");
+                System.out.println(ss.toString());
+                System.out.println(ss.topEmp());
+                System.out.println(ss.averageSolveTime());
+                System.out.println(ss.longestReq());
+                System.out.println(ss.shortestReq());
+                break;
             default:
                 break;
         }
