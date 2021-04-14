@@ -12,7 +12,6 @@ public class EncEficiente {
     private String numEncomenda;
     private LocalDate data;
     private List<LinhaEncomenda> encomendas;
-
     /**
      * Construtor parametrizado de EncEficiente
      * @param nomeCliente
