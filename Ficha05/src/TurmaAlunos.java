@@ -1,9 +1,9 @@
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.Collator;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class TurmaAlunos implements Comparable<TurmaAlunos> {
+public class TurmaAlunos{
     private Map<String, Aluno> turma;
     private String nomeTurma;
     private String uc;
@@ -93,6 +93,36 @@ public class TurmaAlunos implements Comparable<TurmaAlunos> {
     }
 
     public Aluno getAluno (String codAluno){
-        return this.turma.get(codAluno);
+        return this.turma.get(codAluno).clone();
     }
+
+    public void removeAluno(String codAluno){
+        this.turma.remove(codAluno);
+    }
+
+    public Set<String> todosOsCodigos(){
+        Set<String> ans = new HashSet<>();
+        for(Map.Entry<String, Aluno> m : this.turma.entrySet())
+            ans.add(m.getKey());
+        return  ans;
+    }
+
+    public int qtsAlunos(){
+        return this.turma.size();
+    }
+
+    public Collection<Aluno> alunosOrdemAlfabetica(){
+        Collection<Aluno> ans = new TreeSet<>(Aluno::compareTo);
+        for(Map.Entry<String, Aluno> m : this.turma.entrySet())
+            ans.add(m.getValue());
+        return ans;
+    }
+
+    /*
+    public Set<Aluno> alunosOrdemDecrescenteNumero(){
+        Set<Aluno> ans = new TreeSet<>(Col;;
+    }
+     */
+
+
 }
