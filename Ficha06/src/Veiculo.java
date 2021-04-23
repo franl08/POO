@@ -46,7 +46,7 @@ public class Veiculo implements Comparable<Veiculo> {
         this.kmsUltimo = 0;
     }
 
-    public Veiculo(String id, String marca, String modelo, String matricula,
+    public Veiculo(String marca, String modelo, String matricula,
                    int ano, double velociademedia, double precokm,
                    ArrayList<Integer> classificacao,
                    int kms, int kmsUltimo) {
@@ -178,6 +178,21 @@ public class Veiculo implements Comparable<Veiculo> {
                 this.classificacao.equals(v.getClassificacao()) &&
                 this.kms == v.getKms() &&
                 this.kmsUltimo == v.getKmsUltimo() ;
+    }
+
+    public String toString(){
+        StringBuilder sb = new StringBuilder("Veiculo: \n")
+                .append("Marca: ").append(marca)
+                .append("\nModelo: ").append(modelo)
+                .append("\nMatricula: ").append(matricula)
+                .append("\nAno: ").append(ano)
+                .append("\nVelocidade Média: ").append(velociademedia)
+                .append("\nPreço por km: ").append(precokm)
+                .append("\nClassificação: ").append(classificacao.toString())
+                .append("\nKilómetros: ").append(kms)
+                .append("\nKilómetros da última viagem: ").append(kmsUltimo)
+                .append("\n");
+        return sb.toString();
     }
 
     /**

@@ -59,15 +59,12 @@ public class DriveIt {
     }
 
     public List<Veiculo> getVeiculos(){
-        List<Veiculo> ans = new ArrayList<>();
-        for(Map.Entry<String, Veiculo> m : this.veics.entrySet())
-            ans.add(m.getValue());
-        return ans;
+        return new ArrayList<>(this.veics.values());
     }
 
     public void adiciona(Set<Veiculo> vs){
         for(Veiculo v : vs)
-            this.adiciona(v);
+            this.adiciona(v.clone());
     }
 
     public void registarAluguer(String codVeiculo, int numKms){
