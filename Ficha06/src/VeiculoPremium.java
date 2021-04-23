@@ -29,7 +29,7 @@ public class VeiculoPremium extends Veiculo{
     }
 
     public VeiculoPremium(VeiculoPremium vp){
-        super(vp.getMarca(), vp.getModelo(), vp.getMatricula(), vp.getAno(), vp.getVelociademedia(), vp.getPrecokm(), vp.getClassificacao(), vp.getKms(), vp.getKmsUltimo());
+        super(vp);
         this.taxaDeLuxo = getTaxaDeLuxo();
     }
 

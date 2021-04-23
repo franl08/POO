@@ -131,5 +131,20 @@ public class DriveIt {
         this.veics.values().stream().filter(v -> v instanceof VeiculoOcasiao).forEach(v -> ((VeiculoOcasiao)v).setEmDesconto(estado));
     }
 
+    public void defOcupacao() {
+        for (Veiculo v : this.veics.values())
+            if (v.getClass().toString().split(" ")[1].equals("AutocarroInteligente")) {
+                AutocarroInteligente ai = (AutocarroInteligente) v;
+                ai.setOcupacao((int) (85 * ai.getLotacao()) / 100);
+            }
+    }
+
+    public double valorMedioKM(){
+        defOcupacao();
+        int ac = 0;
+        for(Veiculo v : this.veics.values())
+            ac += v.getCustoRealKM();
+        return (double) ac / this.veics.size();
+    }
 }
 

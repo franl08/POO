@@ -30,7 +30,7 @@ public class VeiculoOcasiao extends Veiculo{
     }
 
     public VeiculoOcasiao(VeiculoOcasiao vo){
-        super(vo.getMarca(), vo.getModelo(), vo.getMatricula(), vo.getAno(), vo.getVelociademedia(), vo.getPrecokm(), vo.getClassificacao(), vo.getKms(), vo.getKmsUltimo());
+        super(vo);
         this.emDesconto = vo.getEmDesconto();
     }
 
