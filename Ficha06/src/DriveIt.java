@@ -73,7 +73,7 @@ public class DriveIt {
     }
 
     public void classificarVeiculo(String cod, int classificacao){
-        if(this.veics.get(cod) != null)
+        if(this.veics.get(cod) != null && classificacao >= 0 && classificacao <= 10)
             this.veics.get(cod).addClassificacao(classificacao);
     }
 
