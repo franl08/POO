@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @version 20210420
  */
 
-public class Veiculo implements Comparable<Veiculo> {
+public abstract class Veiculo implements Comparable<Veiculo> {
     private String marca;
     private String modelo;
     private String matricula;
@@ -102,6 +102,7 @@ public class Veiculo implements Comparable<Veiculo> {
     }
 
 
+
     /**
      * Se a implementaÃ§Ã£o fosse:
      *   return this.classificaÃ§Ã£o;
@@ -159,11 +160,7 @@ public class Veiculo implements Comparable<Veiculo> {
         this.classificacao.add(v);
     }
 
-    public Veiculo clone(){
-        return new Veiculo(this);
-    }
-
-
+    public abstract Veiculo clone();
 
     public boolean equals(Object o){
         if (o == this) return true;
@@ -206,11 +203,6 @@ public class Veiculo implements Comparable<Veiculo> {
     }
 
 
-
-
-
-
-
-
+    public abstract double getCustoRealKM();
 
 }

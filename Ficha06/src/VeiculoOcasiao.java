@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 public class VeiculoOcasiao extends Veiculo{
     private boolean emDesconto;
@@ -16,6 +17,16 @@ public class VeiculoOcasiao extends Veiculo{
     public VeiculoOcasiao(String marca, String modelo, String matricula, int ano, double velociademedia, double precokm, ArrayList<Integer> classificacao, int kms, int kmsUltimo, boolean emDesconto) {
         super(marca, modelo, matricula, ano, velociademedia, precokm, classificacao, kms, kmsUltimo);
         this.emDesconto = emDesconto;
+    }
+
+    public VeiculoOcasiao(Veiculo v, boolean emDesconto) {
+        super(v);
+        this.emDesconto = emDesconto;
+    }
+
+    public VeiculoOcasiao(Veiculo v) {
+        super(v);
+        this.emDesconto = false;
     }
 
     public VeiculoOcasiao(VeiculoOcasiao vo){
@@ -51,7 +62,7 @@ public class VeiculoOcasiao extends Veiculo{
     }
 
     @Override
-    public double getPrecokm(){
+    public double getCustoRealKM(){
         return(emDesconto ? custoRealKM() * 0.75 : custoRealKM());
     }
 }
