@@ -9,6 +9,7 @@
 /** conhecimentos de POO.                                                        */
 /*********************************************************************************/
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * @version 20210420
  */
 
-public abstract class Veiculo implements Comparable<Veiculo> {
+public abstract class Veiculo implements Comparable<Veiculo>, Serializable {
     private String marca;
     private String modelo;
     private String matricula;

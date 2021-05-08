@@ -1,37 +1,50 @@
 import java.util.ArrayList;
 
-public class AutocarroInteligente extends Veiculo{
+public class AutocarroInteligente extends Veiculo implements BonificaKms{
     private int lotacao;
     private int ocupacao;
+    private int pontosKm;
 
     public AutocarroInteligente() {
         super();
         this.lotacao = 0;
         this.ocupacao = 0;
+        this.pontosKm = 0;
     }
 
     public AutocarroInteligente(String marca, String modelo, String matricula, int ano, double velociademedia, double precokm, ArrayList<Integer> classificacao, int kms, int kmsUltimo) {
         super(marca, modelo, matricula, ano, velociademedia, precokm, classificacao, kms, kmsUltimo);
         this.lotacao = 0;
         this.ocupacao = 0;
+        this.pontosKm = 0;
     }
 
     public AutocarroInteligente(String marca, String modelo, String matricula, int ano, double velociademedia, double precokm, ArrayList<Integer> classificacao, int kms, int kmsUltimo, int lotacao) {
         super(marca, modelo, matricula, ano, velociademedia, precokm, classificacao, kms, kmsUltimo);
         this.lotacao = lotacao;
         this.ocupacao = 0;
+        this.pontosKm = 0;
     }
 
     public AutocarroInteligente(String marca, String modelo, String matricula, int ano, double velociademedia, double precokm, ArrayList<Integer> classificacao, int kms, int kmsUltimo, int lotacao, int ocupacao) {
         super(marca, modelo, matricula, ano, velociademedia, precokm, classificacao, kms, kmsUltimo);
         this.lotacao = lotacao;
         this.ocupacao = ocupacao;
+        this.pontosKm = 0;
+    }
+
+    public AutocarroInteligente(String marca, String modelo, String matricula, int ano, double velociademedia, double precokm, ArrayList<Integer> classificacao, int kms, int kmsUltimo, int lotacao, int ocupacao, int pontosKm) {
+        super(marca, modelo, matricula, ano, velociademedia, precokm, classificacao, kms, kmsUltimo);
+        this.lotacao = lotacao;
+        this.ocupacao = ocupacao;
+        this.pontosKm = pontosKm;
     }
 
     public AutocarroInteligente(AutocarroInteligente ai){
         super(ai);
         this.lotacao = ai.getLotacao();
         this.ocupacao = ai.getOcupacao();
+        this.pontosKm = ai.getPontosKm();
     }
 
     public AutocarroInteligente clone(){
@@ -75,5 +88,13 @@ public class AutocarroInteligente extends Veiculo{
         double ratio = (double) ocupacao / lotacao;
         if(ratio > 0.6) return custoRealKM() * 0.25;
         return custoRealKM() * 0.5;
+    }
+
+    public void setPontosKm(int pontosKm){
+        this.pontosKm = pontosKm;
+    }
+
+    public int getPontosKm(){
+        return this.pontosKm;
     }
 }

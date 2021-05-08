@@ -1,9 +1,11 @@
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class DriveIt {
+public class DriveIt implements Serializable {
     private Map<String, Veiculo> veics;
-    public boolean desconto;
+    private boolean desconto;
+    private static final Map<String, Comparator<Veiculo>> comps = new HashMap<>();
 
     public DriveIt(){
         this.veics = new HashMap<>();
@@ -47,6 +49,14 @@ public class DriveIt {
         this.desconto = desconto;
     }
 
+    public Comparator<Veiculo> getComparator(String name){
+        return comps.get(name);
+    }
+
+    public void addComparator(String name, Comparator<Veiculo> c){
+        comps.put(name, c);
+    }
+
     public boolean equals(Object o){
         if (this == o) return true;
         else if(o == null || this.getClass() != o.getClass()) return false;
@@ -62,34 +72,40 @@ public class DriveIt {
         return this.veics.size();
     }
 
-    public Veiculo getVeiculo(String cod){
-        return this.veics.get(cod);
+    public Veiculo getVeiculo(String cod) throws VeiculoNotFoundException {
+        Veiculo v = this.veics.get(cod);
+        if(v == null) throw new VeiculoNotFoundException("Veiculo " + cod + " não existe");
+        else return v;
     }
 
-    public void adiciona(Veiculo v){
-        this.veics.put(v.getMatricula(), v);
+    public void adiciona(Veiculo v) throws VeiculoAlreadyExistsException{
+        if(this.veics.containsKey(v.getMatricula())) throw new VeiculoAlreadyExistsException("Veiculo " + v.getMatricula() + " já existe");
+        else this.veics.put(v.getMatricula(), v);
     }
 
     public List<Veiculo> getVeiculos(){
         return new ArrayList<>(this.veics.values());
     }
 
-    public void adiciona(Set<Veiculo> vs){
+    public void adiciona(Set<Veiculo> vs) throws VeiculoAlreadyExistsException{
         for(Veiculo v : vs)
             this.adiciona(v.clone());
     }
 
-    public void registarAluguer(String codVeiculo, int numKms){
-        if(this.veics.get(codVeiculo) != null)
-            this.veics.get(codVeiculo).addViagem(numKms);
+    public void registarAluguer(String codVeiculo, int numKms) throws VeiculoNotFoundException, InvalidValueException{
+        if(this.veics.get(codVeiculo) == null) throw new VeiculoNotFoundException("Veiculo " + codVeiculo + " não existe");
+        if(numKms < 0) throw new InvalidValueException("Número de kms deve ser >= 0");
+        this.veics.get(codVeiculo).addViagem(numKms);
     }
 
-    public void classificarVeiculo(String cod, int classificacao){
-        if(this.veics.get(cod) != null && classificacao >= 0 && classificacao <= 10)
-            this.veics.get(cod).addClassificacao(classificacao);
+    public void classificarVeiculo(String cod, int classificacao) throws VeiculoNotFoundException, InvalidValueException{
+        if(this.veics.get(cod) == null) throw new VeiculoNotFoundException("Veiculo " + cod + " não existe");
+        if(classificacao >= 0 && classificacao <= 10) throw new InvalidValueException("A classificação deve ser um valor entre 0 e 10");
+        this.veics.get(cod).addClassificacao(classificacao);
     }
 
-    public int custoRealKm(String cod){
+    public int custoRealKm(String cod) throws VeiculoNotFoundException{
+        if(this.veics.get(cod) == null) throw new VeiculoNotFoundException("Veiculo " + cod + " não existe");
         return (int) this.veics.get(cod).getCustoRealKM();
     }
 
@@ -104,15 +120,15 @@ public class DriveIt {
         return this.veics.values().stream().sorted(Comparator.comparingDouble(Veiculo::getPrecokm).reversed()).collect(Collectors.toList());
     }
 
-    public Veiculo veiculoMaisBarato(){
+    public Veiculo veiculoMaisBarato() throws VeiculoNotFoundException{
         if(this.veics.size() > 0){
             List<Veiculo> vs = veiculosOrdenadosCusto();
             return vs.get(vs.size() - 1);
         }
-        return null;
+        else throw new VeiculoNotFoundException("Não existem veículos na empresa.");
     }
 
-    public Veiculo menosUtilizado(){
+    public Veiculo menosUtilizado() throws  VeiculoNotFoundException{
         if(this.veics.size() > 0){
             int min = Integer.MAX_VALUE;
             Veiculo ans = null;
@@ -123,7 +139,7 @@ public class DriveIt {
                 }
             return ans;
         }
-        return null;
+        else throw new VeiculoNotFoundException("Não existem veículos na empresa");
     }
 
     public void alteraPromocao(boolean estado){
@@ -146,5 +162,71 @@ public class DriveIt {
             ac += v.getCustoRealKM();
         return (double) ac / this.veics.size();
     }
+
+    public Set<Veiculo> ordenarVeiculosSet(){
+        return this.veics.values().stream().map(Veiculo::clone).collect(Collectors.toCollection(TreeSet::new));
+    }
+
+    public List<Veiculo> ordenarVeiculosList(){
+        return  this.veics.values().stream().map(Veiculo::clone).sorted().collect(Collectors.toList());
+    }
+
+    public Set<Veiculo> ordenarVeiculos(Comparator<Veiculo> c){
+        return this.veics.values().stream().sorted(c).map(Veiculo::clone).collect(Collectors.toCollection(TreeSet::new));
+    }
+
+    public Iterator<Veiculo> ordenarVeiculo(String criterio){
+        Comparator<Veiculo> c = getComparator(criterio);
+        if(this.veics.isEmpty() || c == null) return null;
+        return this.veics.values().stream().sorted(c).iterator();
+    }
+
+    public List<BonificaKms> daoPontos(){
+        return this.veics.values().stream().filter(v -> v instanceof BonificaKms).map(v -> (BonificaKms)v.clone()).collect(Collectors.toList());
+    }
+
+    public void exportToFile(String filename){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+            for(Veiculo v : this.veics.values())
+                writer.write(v.toString() + ",\n");
+            writer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public String saveState(){
+        String outputFile = ".saves/driveIt.sv";
+        try{
+            FileOutputStream fos = new FileOutputStream(outputFile);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(this);
+            oos.close();
+            fos.close();
+            return outputFile;
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void loadState(String inputFile){
+        try{
+            FileInputStream fis = new FileInputStream(inputFile);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            DriveIt copy = (DriveIt) ois.readObject();
+            this.setVeics(copy.getVeics());
+            this.setDesconto(copy.getDesconto());
+            ois.close();
+            fis.close();
+        }
+        catch(IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
 }
+
 
